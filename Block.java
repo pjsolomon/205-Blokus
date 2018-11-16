@@ -63,6 +63,12 @@ public class Block {
         this.x += horizontal*this.width;
         this.y += vertical*this.width;
     }
+    
+    public void draw(){
+        //fill up this method to draw a square base on the width and (x,y) that 
+        //exist in the JavaFx scene. Feel free to change color in private
+        //to the enum or int that works for javaFX
+    }
 
 }
 

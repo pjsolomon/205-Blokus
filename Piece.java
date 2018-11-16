@@ -13,8 +13,8 @@ import java.util.ArrayList;
 public class Piece {
     private int[][] piece = new int[5][5]; //create a 5X5 2dMatrix (0 stand for no block 1 means have block there, piece[2][2] is the original block)
     private int type;
-    private int originX = 0;
-    private int originY = 0;
+    private int originX = 0;// x coordinate of piece[2][2]
+    private int originY = 0;//y coordinate of piece[2][2]
     private String color;
 
     public Piece(int type, String color){
@@ -223,6 +223,13 @@ public class Piece {
     public void draw(){
         for(int i=0;i<piece.length;i++){
             for(int j=0;j<piece[i].length;j++){
+                /* uncomment after draw is done. (and please test it after)
+                if(piece[i][j] == 1){
+                    Block temp = new Block(originX+5*(i-2),originY+5*(j-2),5);//5 is the width change it if width change
+                    temp.draw();
+                }
+                */
+                //this is just the function for testing feel free to remove it.
                 System.out.print(piece[i][j]+"\t");
             }
             System.out.println();

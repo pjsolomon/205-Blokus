@@ -51,6 +51,14 @@ public class Board {
             return false;
         }
     }
+    
+    public void draw(){
+        for(int i = 0;i<this.Board.length;i++){
+            for(int j = 0;j<this.Board[i].length;j++){
+                Board[i][j].draw();
+            }
+        }
+    }
 
     /*public boolean checkAvalible(Piece piece){
         return true;//change it when you work on this part.
