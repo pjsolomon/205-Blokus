@@ -1,4 +1,4 @@
-import Piece
+import Piece.java;
 
 public void PTest(){
 
@@ -54,7 +54,7 @@ public void PTest(){
             pieceErrors += 1;
         }
 
-        Piece pieceArr[]=new Piece[21]
+        Piece pieceArr[]=new Piece[21];
         for(int i=0;i<=21;++i){
             pieceArr[i]=new Piece(i,'color');
 
@@ -62,7 +62,7 @@ public void PTest(){
             System.out.print(i);
             pieceArr[i].draw();
 
-            System.out.print("Rotated 360, Reflected across X and Y and Back")
+            System.out.print("Rotated 360, Reflected across X and Y and Back");
             piece[i].rotateRight();
             piece[i].rotateRight();
             piece[i].rotateRight();
@@ -77,7 +77,7 @@ public void PTest(){
 }
 
 public void main() {
-
+    PTest();
 }
 
 
