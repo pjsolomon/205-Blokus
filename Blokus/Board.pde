@@ -84,7 +84,7 @@ public class Board {
       boolean corners = false;
       for(int i = 0; i < tempPiece.length; i++){
         for(int j = 0; j<tempPiece[i].length;j++){
-              System.out.println(board[tempX][tempY]);
+              //System.out.println(board[tempX][tempY]);
               if(tempPiece[i][j] == 1){
                 tempX = ((p.getOriginX()+30*(i-2))+originX)/30;
                 tempY = ((p.getOriginY()+30*(j-2))+originY)/30;
@@ -155,6 +155,20 @@ public class Board {
                 && tempY == 0
                 && board[tempX][tempY] == -360334
                 && p.getColor() == -3657166){
+                  placeable = true;
+                  corners = true;
+                  
+                }else if(tempX == 19
+                && tempY == 0
+                && board[tempX][tempY] == -6751336
+                && p.getColor() == -6888886){
+                  placeable = true;
+                  corners = true;
+                
+                }else if(tempX == 0
+                && tempY == 19
+                && board[tempX][tempY] == -154
+                && p.getColor() == -200){
                   placeable = true;
                   corners = true;
                 }
