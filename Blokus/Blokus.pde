@@ -1,15 +1,16 @@
 color c2 = #FFCC00;
 int grid = 30;
 boolean holdingPiece;
+int turn = 0;
 Piece currentPiece;
 //Create Demo Pieces
 Piece[] bluePiece;
 Piece[] redPiece;
 Board board;
 
-Button quit;  
-Button instructions;  
-Button newGame;  
+Button quit;
+Button instructions;
+Button newGame;
 void settings(){
   size(1200,800);
 }
@@ -29,7 +30,7 @@ void setup() { //Set Window Size
     redPiece[i].setOrigin(680 + ((75*i) % 450), 460 + (floor(i/6)*100));
   }
   holdingPiece = false;
-  
+
   quit = new Button("Quit", 300, 650, 100, 50);
   newGame = new Button("New Game", 50, 650, 100, 50);
   instructions = new Button("How To Play", 175, 650, 100, 50);
@@ -38,38 +39,37 @@ void setup() { //Set Window Size
 
 //Draw is a continuous loop that runs infinitely after setup()
 void draw() {
-  
+
   clear();
   background(255);
   noFill();
-  
+
   //Draw Grid
   board.draw();
-  
+
   //Draw Containers
   for(int i = 0; i < 2; ++i) {
     noFill();
     rect(630,(i * 400),520,390);
   }
-  
+
   //Create Piece that Follows Mouse
   if(currentPiece!=null){
     currentPiece.draw();
   }
-  
+
   for(int i = 0; i < 21; i++){
     bluePiece[i].drawPreview();
   }
-  
+
   for(int i = 0; i < 21; i++){
     redPiece[i].drawPreview();
   }
-  
   if(holdingPiece == true && currentPiece!=null){
     currentPiece.setOrigin(mouseX,mouseY);
   }
-  
-  //Board newBoard = new Board(0,0);  
+
+  //Board newBoard = new Board(0,0);
   quit.Draw();
   instructions.Draw();
   newGame.Draw();
@@ -85,6 +85,7 @@ void mousePressed() {
     if(keepGoing){
       holdingPiece = false;
       currentPiece = null;
+      turn++;
     }
   } else {
     for(int i = 0; i < 21; i++){
@@ -92,8 +93,9 @@ void mousePressed() {
     &&mouseX<(725+(75*i)%450)
     &&mouseY>30 + (floor(i/6)*100)
     &&mouseY<105 +(floor(i/6)*100)
-    &&bluePiece[i].getBeenDrawed()==false){
-      bluePiece[i].setBeenDrawed(true);
+    &&bluePiece[i].getBeenDrawed()==false
+    &&turn % 2 ==0
+    ){ bluePiece[i].setBeenDrawed(true);
       Piece temp = new Piece(bluePiece[i].getType(),
       bluePiece[i].getColor());
       currentPiece = temp;
@@ -103,7 +105,8 @@ void mousePressed() {
     if(mouseX>(650+(75*i)%450)
     &&mouseX<(725+(75*i)%450)
     &&mouseY>430 + (floor(i/6)*100)
-    &&mouseY<505 +(floor(i/6)*100)){
+    &&mouseY<505 +(floor(i/6)*100)
+    &&turn % 2 ==1){
       redPiece[i].setBeenDrawed(true);
       Piece temp = new Piece(redPiece[i].getType(),
       redPiece[i].getColor());
@@ -113,7 +116,7 @@ void mousePressed() {
     }
   }
   }
-  
+
   if (quit.MouseIsOver()) {
     exit();
   }
@@ -127,15 +130,16 @@ void mousePressed() {
   }
 }
 
+
 void keyPressed() {
   if (keyCode == UP){
     currentPiece.verticalFlip();
   } else if (keyCode == DOWN){
     currentPiece.horizontalFlip();
   } else if (keyCode == LEFT){
-   
+
   } else if (keyCode == RIGHT){
-    currentPiece.rotateRight();  
+    currentPiece.rotateRight();
   }
-    
+
 }

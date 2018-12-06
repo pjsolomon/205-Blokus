@@ -60,6 +60,8 @@ public class Board {
         }
     }
 
+
+
     /*public boolean checkAvalible(Piece piece){
         return true;//change it when you work on this part.
     }*/

@@ -26,11 +26,9 @@ public class Block {
         this.width = width;
         this.color = color;
     }
-
     public int getX(){
         return this.x;
     }
-
     public int getY(){
         return this.y;
     }
@@ -50,11 +48,9 @@ public class Block {
     public void setY(int y){
         this.y = y;
     }
-
     public void setWidth(int width){
         this.width = width;
     }
-
     public void setColor(String color){
         this.color = color;
     }
@@ -63,7 +59,6 @@ public class Block {
         this.x += horizontal*this.width;
         this.y += vertical*this.width;
     }
-    
     public void draw(){
         //fill up this method to draw a square base on the width and (x,y) that 
         //exist in the JavaFx scene. Feel free to change color in private
