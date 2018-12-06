@@ -7,6 +7,7 @@ Piece currentPiece;
 Piece[] bluePiece;
 Piece[] redPiece;
 Board board;
+ComputerPlayer cp = new ComputerPlayer(-13487416,-3657166);
 
 Button quit;
 Button instructions;
@@ -137,7 +138,10 @@ void keyPressed() {
   } else if (keyCode == DOWN){
     currentPiece.horizontalFlip();
   } else if (keyCode == LEFT){
-
+    Board updatedBoard =  cp.takeTurn(board,-13487416);
+    if(updatedBoard != null){
+      board = updatedBoard;
+    }
   } else if (keyCode == RIGHT){
     currentPiece.rotateRight();
   }
