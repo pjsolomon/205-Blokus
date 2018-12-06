@@ -158,14 +158,14 @@ void mousePressed() {
 
 void keyPressed() {
   if (keyCode == UP){
-    currentPiece.verticalFlip();
+    if(currentPiece != null) currentPiece.verticalFlip();
   } else if (keyCode == DOWN){
-    currentPiece.horizontalFlip();
+    if(currentPiece != null) currentPiece.horizontalFlip();
   } else if (keyCode == LEFT){
     cp.takeTurn(board,-6888886);
     cp.takeTurn(board,-200);
   } else if (keyCode == RIGHT){
-    currentPiece.rotateRight();
+    if(currentPiece != null) currentPiece.rotateRight();
   }
 
 }
