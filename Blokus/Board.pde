@@ -12,7 +12,19 @@ public class Board {
       grid = 30;
       for(int i = 0; i < board.length; i++){
             for(int j = 0; j<board[i].length;j++){
+              if(i == 19 && j == 19){
+                board[i][j]=#ADD8E6;
+              }else if(i == 0 && j == 0){
+                board[i][j]=#FA8072;
+              }else if(i == 19 && j == 0){
+                board[i][j]=#98FB98;
+              }else if(i == 0 && j == 19){
+                board[i][j]=#FFFF66;
+              }
+              else{
               board[i][j]=#FFFFFF;
+              }
+
             }
         }
     }
@@ -72,7 +84,7 @@ public class Board {
       boolean corners = false;
       for(int i = 0; i < tempPiece.length; i++){
         for(int j = 0; j<tempPiece[i].length;j++){
-
+              System.out.println(board[tempX][tempY]);
               if(tempPiece[i][j] == 1){
                 tempX = ((p.getOriginX()+30*(i-2))+originX)/30;
                 tempY = ((p.getOriginY()+30*(j-2))+originY)/30;
@@ -134,14 +146,14 @@ public class Board {
                 }
                 }else if(tempX == 19
                 && tempY == 19
-                && board[tempX][tempY] == -1
+                && board[tempX][tempY] == -5383962
                 && p.getColor() == -13487416){
                   placeable = true;
                   corners = true;
 
-                }else if(tempX == 19
+                }else if(tempX == 0
                 && tempY == 0
-                && board[tempX][tempY] == -1
+                && board[tempX][tempY] == -360334
                 && p.getColor() == -3657166){
                   placeable = true;
                   corners = true;
