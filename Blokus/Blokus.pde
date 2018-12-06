@@ -7,7 +7,6 @@ Piece currentPiece;
 Piece[] bluePiece;
 Piece[] redPiece;
 Board board;
-ComputerPlayer cp;
 
 Button quit;
 Button instructions;
@@ -35,8 +34,6 @@ void setup() { //Set Window Size
   quit = new Button("Quit", 300, 650, 100, 50);
   newGame = new Button("New Game", 50, 650, 100, 50);
   instructions = new Button("How To Play", 175, 650, 100, 50);
-  
-  cp = new ComputerPlayer(-6888886,-200);
 }
 
 
@@ -97,7 +94,7 @@ void mousePressed() {
     &&mouseY>30 + (floor(i/6)*100)
     &&mouseY<105 +(floor(i/6)*100)
     &&bluePiece[i].getBeenDrawed()==false
-    &&turn % 2 ==1
+    &&turn % 2 ==0
     ){ bluePiece[i].setBeenDrawed(true);
       Piece temp = new Piece(bluePiece[i].getType(),
       bluePiece[i].getColor());
@@ -109,7 +106,7 @@ void mousePressed() {
     &&mouseX<(725+(75*i)%450)
     &&mouseY>430 + (floor(i/6)*100)
     &&mouseY<505 +(floor(i/6)*100)
-    &&turn % 2 ==0){
+    &&turn % 2 ==1){
       redPiece[i].setBeenDrawed(true);
       Piece temp = new Piece(redPiece[i].getType(),
       redPiece[i].getColor());
@@ -140,8 +137,7 @@ void keyPressed() {
   } else if (keyCode == DOWN){
     currentPiece.horizontalFlip();
   } else if (keyCode == LEFT){
-    cp.takeTurn(board,-6888886);
-    cp.takeTurn(board,-200);
+
   } else if (keyCode == RIGHT){
     currentPiece.rotateRight();
   }
