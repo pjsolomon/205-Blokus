@@ -94,10 +94,10 @@ public class Board {
                 && tempY > 0
                 && tempY < 19){
                 if(board[tempX][tempY] != -1
-                ||board[tempX+1][tempY] != -1
-                ||board[tempX][tempY+1] != -1
-                ||board[tempX-1][tempY] != -1
-                ||board[tempX][tempY-1] != -1){
+                ||board[tempX+1][tempY] != -1 && board[tempX+1][tempY] != p.getColor()
+                ||board[tempX][tempY+1] != -1 && board[tempX][tempY+1] != p.getColor()
+                ||board[tempX-1][tempY] != -1 && board[tempX-1][tempY] != p.getColor()
+                ||board[tempX][tempY-1] != -1 && board[tempX][tempY-1] != p.getColor()){
                   placeable = false;
                 }
                 if((board[tempX+1][tempY+1] == p.getColor()
@@ -109,62 +109,62 @@ public class Board {
                 }else if(tempX == 0
                 && tempY > 0
                 && tempY < 19){
-                  if(board[tempX][tempY] != -1
-                    ||board[tempX+1][tempY] != -1
-                    ||board[tempX][tempY+1] != -1
-                    ||board[tempX][tempY-1] != -1){
+                  if(board[tempX][tempY] != -1 && board[tempX][tempY] != p.getColor()
+                    ||board[tempX+1][tempY] != -1 && board[tempX+1][tempY] != p.getColor()
+                    ||board[tempX][tempY+1] != -1 && board[tempX][tempY+1] != p.getColor()
+                    ||board[tempX][tempY-1] != -1 && board[tempX][tempY-1] != p.getColor()){
                     placeable = false;
                 }
 
                 }else if(tempY == 0
                 && tempX > 0
                 && tempX < 19){
-                  if(board[tempX][tempY] != -1
-                ||board[tempX+1][tempY] != -1
-                ||board[tempX][tempY+1] != -1
-                ||board[tempX-1][tempY] != -1){
+                  if(board[tempX][tempY] != -1 && board[tempX][tempY] != p.getColor()
+                ||board[tempX+1][tempY] != -1 && board[tempX+1][tempY] != p.getColor()
+                ||board[tempX][tempY+1] != -1 && board[tempX][tempY+1] != p.getColor()
+                ||board[tempX-1][tempY] != -1 && board[tempX-1][tempY] != p.getColor()){
                    placeable = false;
                 }
 
                 }else if(tempY == 19
                 && tempX > 0
                 && tempX < 19){
-                  if(board[tempX][tempY] != -1
-                ||board[tempX+1][tempY] != -1
-                ||board[tempX-1][tempY] != -1
-                ||board[tempX][tempY-1] != -1){
+                  if(board[tempX][tempY] != -1 && board[tempX][tempY] != p.getColor()
+                ||board[tempX+1][tempY] != -1 && board[tempX+1][tempY] != p.getColor()
+                ||board[tempX-1][tempY] != -1 && board[tempX-1][tempY] != p.getColor()
+                ||board[tempX][tempY-1] != -1 && board[tempX][tempY-1] != p.getColor()){
                    placeable = false;
                 }
                 }else if(tempX == 19
                 && tempY > 0
                 && tempY < 19){
-                  if(board[tempX][tempY] != -1
-                ||board[tempX][tempY+1] != -1
-                ||board[tempX-1][tempY] != -1
-                ||board[tempX][tempY-1] != -1){
+                  if(board[tempX][tempY] != -1 && board[tempX][tempY] != p.getColor()
+                ||board[tempX][tempY+1] != -1 && board[tempX][tempY+1] != p.getColor()
+                ||board[tempX-1][tempY] != -1 && board[tempX-1][tempY] != p.getColor()
+                ||board[tempX][tempY-1] != -1 && board[tempX][tempY-1] != p.getColor()){
                    placeable = false;
                 }
                 }else if(tempX == 19
                 && tempY == 19
-                && board[tempX][tempY] == -5383962
-                && p.getColor() == -13487416){
+                && board[tempX][tempY] == -5383962 //light blue
+                && p.getColor() == -13487416){ //blue
                   placeable = true;
                   corners = true;
 
                 }else if(tempX == 0
                 && tempY == 0
-                && board[tempX][tempY] == -360334
-                && p.getColor() == -3657166){
+                && board[tempX][tempY] == -360334 //salmon
+                && p.getColor() == -3657166){  //red
                   placeable = true;
                   corners = true;
-                  
+
                 }else if(tempX == 19
                 && tempY == 0
                 && board[tempX][tempY] == -6751336
                 && p.getColor() == -6888886){
                   placeable = true;
                   corners = true;
-                
+
                 }else if(tempX == 0
                 && tempY == 19
                 && board[tempX][tempY] == -154
