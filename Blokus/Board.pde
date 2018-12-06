@@ -81,7 +81,7 @@ public class Board {
                 && tempX <19
                 && tempY > 0
                 && tempY < 19){
-                if(board[tempX][tempY] != -1 && board[tempX][tempY] == p.getColor()
+                if(board[tempX][tempY] != -1
                 ||board[tempX+1][tempY] != -1 && board[tempX+1][tempY] == p.getColor()
                 ||board[tempX][tempY+1] != -1 && board[tempX][tempY+1] == p.getColor()
                 ||board[tempX-1][tempY] != -1 && board[tempX-1][tempY] == p.getColor()
