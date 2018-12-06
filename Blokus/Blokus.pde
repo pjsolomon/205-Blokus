@@ -2,11 +2,13 @@ color c2 = #FFCC00;
 int grid = 30;
 boolean holdingPiece;
 int turn = 0;
+Piece[] startPiece = new Piece[4];
 Piece currentPiece;
 //Create Demo Pieces
 Piece[] bluePiece;
 Piece[] redPiece;
 Board board;
+ComputerPlayer cp = new ComputerPlayer(-13487416,-3657166);
 
 Button quit;
 Button instructions;
@@ -18,7 +20,18 @@ void settings(){
 //Setup Method creates on-run functionality and variables.
 void setup() { //Set Window Size
   stroke(2); //Set Line Width
+  currentPiece = null;
   board = new Board();
+
+  startPiece[0] = new Piece(1,color(#FA8072));//red
+  startPiece[0].setOrigin(0,0);
+  startPiece[1] = new Piece(1,color(#98FB98));//green
+  startPiece[1].setOrigin(570,0);
+  startPiece[2] = new Piece(1,color(#ADD8E6));//blue
+  startPiece[2].setOrigin(570,570);
+  startPiece[3] = new Piece(1,color(#FFFF66));//yellow
+  startPiece[3].setOrigin(0,570);
+
   bluePiece = new Piece[21];
   redPiece = new Piece[21];
   for(int i = 0; i < 21; i++){
@@ -34,6 +47,8 @@ void setup() { //Set Window Size
   quit = new Button("Quit", 300, 650, 100, 50);
   newGame = new Button("New Game", 50, 650, 100, 50);
   instructions = new Button("How To Play", 175, 650, 100, 50);
+  
+  cp = new ComputerPlayer(-6888886,-200);
 }
 
 
@@ -46,6 +61,11 @@ void draw() {
 
   //Draw Grid
   board.draw();
+
+  //Draw start pieces
+  for(int i = 0; i < 4;i++){
+    startPiece[i].draw();
+  }
 
   //Draw Containers
   for(int i = 0; i < 2; ++i) {
@@ -83,6 +103,11 @@ void mousePressed() {
   &&mouseY<600) {
     boolean keepGoing = board.checkAndPlacePiece(currentPiece);
     if(keepGoing){
+      if(currentPiece.getColor() == color(200,50,50)){
+       startPiece[0].delete();
+     }else if(currentPiece.getColor() == color(50,50,200)){
+       startPiece[2].delete();
+     }
       holdingPiece = false;
       currentPiece = null;
       turn++;
@@ -137,7 +162,8 @@ void keyPressed() {
   } else if (keyCode == DOWN){
     currentPiece.horizontalFlip();
   } else if (keyCode == LEFT){
-
+    cp.takeTurn(board,-6888886);
+    cp.takeTurn(board,-200);
   } else if (keyCode == RIGHT){
     currentPiece.rotateRight();
   }
