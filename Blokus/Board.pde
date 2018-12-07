@@ -73,11 +73,10 @@ public class Board {
       boolean outOfBounds = false;
       for(int i = 0; i < tempPiece.length; i++){
         for(int j = 0; j<tempPiece[i].length;j++){
-              //System.out.println(board[tempX][tempY]);
               if(tempPiece[i][j] == 1){
                 tempX = ((p.getOriginX()+30*(i-2))+originX)/30;
                 tempY = ((p.getOriginY()+30*(j-2))+originY)/30;
-
+                //checking board for placement conditions excluding edges of the board
                 if(tempX > 0
                 && tempX <19
                 && tempY > 0
@@ -88,13 +87,13 @@ public class Board {
                 ||board[tempX-1][tempY] != -1 && board[tempX-1][tempY] == p.getColor()
                 ||board[tempX][tempY-1] != -1 && board[tempX][tempY-1] == p.getColor()){
                   placeable = false;
-                }
+                }//checking all the corners of th pieces for placement conditions
                 if((board[tempX+1][tempY+1] == p.getColor()
                 || board[tempX-1][tempY+1] == p.getColor()
                 || board[tempX-1][tempY-1] == p.getColor()
                 || board[tempX+1][tempY-1] == p.getColor())){
                   corners = true;
-                }
+                }//cheking left edge for placement conditions
                 }else if(tempX == 0
                 && tempY > 0
                 && tempY < 19){
@@ -107,7 +106,7 @@ public class Board {
                 || board[tempX+1][tempY-1] == p.getColor())){
                   corners = true;
                 }
-
+                 //checking top edge for placement conditions
                 }else if(tempY == 0
                 && tempX > 0
                 && tempX < 19){
@@ -120,7 +119,7 @@ public class Board {
                 || board[tempX-1][tempY+1] == p.getColor())){
                   corners = true;
                 }
-
+                //checking bottom edge for placement conditions
                 }else if(tempY == 19
                 && tempX > 0
                 && tempX < 19){
@@ -132,7 +131,7 @@ public class Board {
                 }if((board[tempX-1][tempY-1] == p.getColor()
                 || board[tempX+1][tempY-1] == p.getColor())){
                   corners = true;
-                }
+                }//checking right edge for placement conditions
                 }else if(tempX == 19
                 && tempY > 0
                 && tempY < 19){
@@ -145,22 +144,22 @@ public class Board {
                 || board[tempX-1][tempY-1] == p.getColor()
                 )){
                   corners = true;
-                }
+                }//checking starting conditions for blue
                 }else if(tempX == 19
                 && tempY == 19
                 && board[tempX][tempY] == -1
-                && p.getColor() == -13487416){ //blue
+                && p.getColor() == -13487416){
                   placeable = true;
                   corners = true;
-                  System.out.println("Both became true for blue");
-
+                 //checking starting conditions for red
                 }else if(tempX == 0
                 && tempY == 0
                 && board[tempX][tempY] == -1
-                && p.getColor() == -3657166){  //red
+                && p.getColor() == -3657166){
                   placeable = true;
                   corners = true;
 
+                 //checking starting conditions for red
                 }else if(tempX == 19
                 && tempY == 0
                 && board[tempX][tempY] == -1
@@ -168,6 +167,7 @@ public class Board {
                   placeable = true;
                   corners = true;
 
+                 //checking starting conditions for red
                 }else if(tempX == 0
                 && tempY == 19
                 && board[tempX][tempY] == -1
@@ -175,7 +175,7 @@ public class Board {
                   placeable = true;
                   corners = true;
                 }
-
+                //checking out of board conditions
                 if(tempX<0
                 ||tempX>19
                 ||tempY<0
@@ -184,7 +184,6 @@ public class Board {
                    placeable = false;
                    corners = false;
                    outOfBounds = true;
-                   System.out.println("Both became false");
                 }
               else{
                   positionX.add(tempX);
@@ -193,10 +192,6 @@ public class Board {
               }
             }
         }
-        System.out.println("Placeable: "+placeable);
-        System.out.println("Corners: " +corners);
-        System.out.println("Corners: " +!outOfBounds);
-
         if(placeable && corners && !outOfBounds){
           for(int i = 0; i < positionX.size(); i++){
             this.setBlock(positionX.get(i),positionY.get(i),p.getColor());

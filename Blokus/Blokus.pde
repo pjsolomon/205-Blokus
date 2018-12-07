@@ -23,6 +23,7 @@ void setup() { //Set Window Size
   stroke(2); //Set Line Width
   currentPiece = null;
   board = new Board();
+  turn = 0;
 
   startPiece[0] = new Piece(1,color(#FA8072));//red
   startPiece[0].setOrigin(0,0);
@@ -48,7 +49,7 @@ void setup() { //Set Window Size
   quit = new Button("Quit", 300, 650, 100, 50);
   newGame = new Button("New Game", 50, 650, 100, 50);
   instructions = new Button("How To Play", 175, 650, 100, 50);
-  
+
   cp = new ComputerPlayer(-6888886,-200);
 }
 
@@ -133,7 +134,7 @@ void mousePressed() {
     &&mouseY<105 +(floor(i/6)*100)
     &&bluePiece[i].getBeenDrawed()==false
     &&turn % 4 ==0
-    ){ 
+    ){
       bluePiece[i].setBeenDrawed(true);
       Piece temp = new Piece(bluePiece[i].getType(),
       bluePiece[i].getColor());
@@ -189,6 +190,13 @@ void keyPressed() {
     if(currentPiece != null) currentPiece.verticalFlip();
   } else if (keyCode == DOWN){
     if(currentPiece != null) currentPiece.horizontalFlip();
+  } else if (keyCode == LEFT){
+
+  } else if (keyCode == RIGHT){
+    if(currentPiece != null) currentPiece.rotateRight();
+  }
+
+}    if(currentPiece != null) currentPiece.horizontalFlip();
   } else if (keyCode == LEFT){
     
   } else if (keyCode == RIGHT){
