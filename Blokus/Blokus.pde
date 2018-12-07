@@ -93,9 +93,11 @@ void draw() {
   if(turn%4 == 1){
     cp.takeTurn(board,-6888886);
     turn++;
+    startPiece[1].delete();
   }else if (turn%4 == 3){
     cp.takeTurn(board,-200);
     turn++;
+    startPiece[3].delete();
   }
 
   quit.Draw();
@@ -128,13 +130,15 @@ void mousePressed() {
     &&mouseY<105 +(floor(i/6)*100)
     &&bluePiece[i].getBeenDrawed()==false
     &&turn % 4 ==0
-    ){ bluePiece[i].setBeenDrawed(true);
+    ){ 
+      bluePiece[i].setBeenDrawed(true);
       Piece temp = new Piece(bluePiece[i].getType(),
       bluePiece[i].getColor());
       if(tempPiece == null){
         tempPiece = bluePiece[i];
       }else{
         tempPiece.recreate();
+        tempPiece.setBeenDrawed(false);
         tempPiece = bluePiece[i];
       }
       currentPiece = temp;
@@ -153,6 +157,7 @@ void mousePressed() {
         tempPiece = redPiece[i];
       }else{
         tempPiece.recreate();
+        tempPiece.setBeenDrawed(false);
         tempPiece = redPiece[i];
       }
       currentPiece = temp;
