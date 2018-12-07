@@ -97,7 +97,7 @@ public class Board {
                 }else if(tempX == 0
                 && tempY > 0
                 && tempY < 19){
-                  if(board[tempX][tempY] != -1 && board[tempX][tempY] == p.getColor()
+                  if(board[tempX][tempY] != -1
                     ||board[tempX+1][tempY] != -1 && board[tempX+1][tempY] == p.getColor()
                     ||board[tempX][tempY+1] != -1 && board[tempX][tempY+1] == p.getColor()
                     ||board[tempX][tempY-1] != -1 && board[tempX][tempY-1] == p.getColor()){
@@ -110,7 +110,7 @@ public class Board {
                 }else if(tempY == 0
                 && tempX > 0
                 && tempX < 19){
-                  if(board[tempX][tempY] != -1 && board[tempX][tempY] == p.getColor()
+                  if(board[tempX][tempY] != -1
                 ||board[tempX+1][tempY] != -1 && board[tempX+1][tempY] == p.getColor()
                 ||board[tempX][tempY+1] != -1 && board[tempX][tempY+1] == p.getColor()
                 ||board[tempX-1][tempY] != -1 && board[tempX-1][tempY] == p.getColor()){
@@ -123,7 +123,7 @@ public class Board {
                 }else if(tempY == 19
                 && tempX > 0
                 && tempX < 19){
-                  if(board[tempX][tempY] != -1 && board[tempX][tempY] == p.getColor()
+                  if(board[tempX][tempY] != -1
                 ||board[tempX+1][tempY] != -1 && board[tempX+1][tempY] == p.getColor()
                 ||board[tempX-1][tempY] != -1 && board[tempX-1][tempY] == p.getColor()
                 ||board[tempX][tempY-1] != -1 && board[tempX][tempY-1] == p.getColor()){
@@ -135,7 +135,7 @@ public class Board {
                 }else if(tempX == 19
                 && tempY > 0
                 && tempY < 19){
-                  if(board[tempX][tempY] != -1 && board[tempX][tempY] == p.getColor()
+                  if(board[tempX][tempY] != -1
                 ||board[tempX][tempY+1] != -1 && board[tempX][tempY+1] == p.getColor()
                 ||board[tempX-1][tempY] != -1 && board[tempX-1][tempY] == p.getColor()
                 ||board[tempX][tempY-1] != -1 && board[tempX][tempY-1] == p.getColor()){
