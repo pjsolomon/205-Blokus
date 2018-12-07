@@ -25,7 +25,7 @@ public class ComputerPlayer {
          for(int i = 0; i < 20; i++) {
            for(int j = 0; j < 20; j++) {
              for(int rotate = 0; rotate < 4;rotate++) {
-               p1[piece].setOrigin(i*30,j*30);
+               p1[piece].setOrigin(i*30,(19-j)*30);
                p1[piece].rotateRight();
                //Determine if piece placement is legal, and piece hasn't been drawn yet.
                if(board.checkAndPlacePiece(p1[piece]) && p1[piece].getBeenDrawed()==false) {
@@ -42,7 +42,7 @@ public class ComputerPlayer {
          for(int i = 0; i < 20; i++) {
            for(int j = 0; j < 20; j++) {
              for(int rotate = 0; rotate < 4;rotate++) {
-               p2[piece].setOrigin(i*30,j*30);
+               p2[piece].setOrigin((19-i)*30,j*30);
                p1[piece].rotateRight();
                //Determine if piece placement is legal, and piece hasn't been drawn yet.
                 if(board.checkAndPlacePiece(p2[piece]) && p2[piece].getBeenDrawed()==false){
