@@ -91,12 +91,14 @@ void draw() {
   }
 
   if(turn%4 == 1){
-    cp.takeTurn(board,-6888886);
-    turn++;
+    if(cp.takeTurn(board,-6888886)!=null){
+      turn++;
+    }
     startPiece[1].delete();
   }else if (turn%4 == 3){
-    cp.takeTurn(board,-200);
-    turn++;
+    if(cp.takeTurn(board,-200)!= null){
+      turn++;
+    }
     startPiece[3].delete();
   }
 
