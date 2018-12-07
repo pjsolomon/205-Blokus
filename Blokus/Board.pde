@@ -70,6 +70,7 @@ public class Board {
       ArrayList<Integer> positionY = new ArrayList<Integer>();
       boolean placeable = true;
       boolean corners = false;
+      boolean outOfBounds = false;
       for(int i = 0; i < tempPiece.length; i++){
         for(int j = 0; j<tempPiece[i].length;j++){
               //System.out.println(board[tempX][tempY]);
@@ -151,6 +152,7 @@ public class Board {
                 && p.getColor() == -13487416){ //blue
                   placeable = true;
                   corners = true;
+                  System.out.println("Both became true for blue");
 
                 }else if(tempX == 0
                 && tempY == 0
@@ -181,6 +183,8 @@ public class Board {
                 ){
                    placeable = false;
                    corners = false;
+                   outOfBounds = true;
+                   System.out.println("Both became false");
                 }
               else{
                   positionX.add(tempX);
@@ -191,13 +195,15 @@ public class Board {
         }
         System.out.println("Placeable: "+placeable);
         System.out.println("Corners: " +corners);
-        if(placeable && corners){
+        System.out.println("Corners: " +!outOfBounds);
+
+        if(placeable && corners && !outOfBounds){
           for(int i = 0; i < positionX.size(); i++){
             this.setBlock(positionX.get(i),positionY.get(i),p.getColor());
           }
-          return placeable && corners;
+          return placeable && corners && !outOfBounds;
         }else{
-          return placeable && corners;
+          return placeable && corners && !outOfBounds;
         }
     }
 
