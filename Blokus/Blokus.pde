@@ -4,6 +4,7 @@ boolean holdingPiece;
 int turn = 0;
 Piece[] startPiece = new Piece[4];
 Piece currentPiece;
+Piece tempPiece;
 //Create Demo Pieces
 Piece[] bluePiece;
 Piece[] redPiece;
@@ -130,6 +131,12 @@ void mousePressed() {
     ){ bluePiece[i].setBeenDrawed(true);
       Piece temp = new Piece(bluePiece[i].getType(),
       bluePiece[i].getColor());
+      if(tempPiece == null){
+        tempPiece = bluePiece[i];
+      }else{
+        tempPiece.recreate();
+        tempPiece = bluePiece[i];
+      }
       currentPiece = temp;
       bluePiece[i].delete();
       holdingPiece = true;
@@ -142,6 +149,12 @@ void mousePressed() {
       redPiece[i].setBeenDrawed(true);
       Piece temp = new Piece(redPiece[i].getType(),
       redPiece[i].getColor());
+      if(tempPiece == null){
+        tempPiece = redPiece[i];
+      }else{
+        tempPiece.recreate();
+        tempPiece = redPiece[i];
+      }
       currentPiece = temp;
       redPiece[i].delete();
       holdingPiece = true;
