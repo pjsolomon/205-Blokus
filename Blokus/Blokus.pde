@@ -121,6 +121,7 @@ void mousePressed() {
       holdingPiece = false;
       currentPiece = null;
       turn++;
+      tempPiece = null;
     }
   } else {
     for(int i = 0; i < 21; i++){
