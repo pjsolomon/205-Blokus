@@ -261,4 +261,7 @@ public class Piece {
         }
       }
     }
+    public void recreate(){
+      setDefaultPiece(type);
+    }
 }
