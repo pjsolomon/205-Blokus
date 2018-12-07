@@ -89,7 +89,14 @@ void draw() {
     currentPiece.setOrigin(mouseX,mouseY);
   }
 
-  //Board newBoard = new Board(0,0);
+  if(turn%4 == 1){
+    cp.takeTurn(board,-6888886);
+    turn++;
+  }else if (turn%4 == 3){
+    cp.takeTurn(board,-200);
+    turn++;
+  }
+
   quit.Draw();
   instructions.Draw();
   newGame.Draw();
@@ -119,7 +126,7 @@ void mousePressed() {
     &&mouseY>30 + (floor(i/6)*100)
     &&mouseY<105 +(floor(i/6)*100)
     &&bluePiece[i].getBeenDrawed()==false
-    &&turn % 2 ==0
+    &&turn % 4 ==0
     ){ bluePiece[i].setBeenDrawed(true);
       Piece temp = new Piece(bluePiece[i].getType(),
       bluePiece[i].getColor());
@@ -131,7 +138,7 @@ void mousePressed() {
     &&mouseX<(725+(75*i)%450)
     &&mouseY>430 + (floor(i/6)*100)
     &&mouseY<505 +(floor(i/6)*100)
-    &&turn % 2 ==1){
+    &&turn % 4 == 2){
       redPiece[i].setBeenDrawed(true);
       Piece temp = new Piece(redPiece[i].getType(),
       redPiece[i].getColor());
@@ -162,8 +169,7 @@ void keyPressed() {
   } else if (keyCode == DOWN){
     if(currentPiece != null) currentPiece.horizontalFlip();
   } else if (keyCode == LEFT){
-    cp.takeTurn(board,-6888886);
-    cp.takeTurn(board,-200);
+    
   } else if (keyCode == RIGHT){
     if(currentPiece != null) currentPiece.rotateRight();
   }
